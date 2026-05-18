@@ -2,65 +2,81 @@
 
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-        <script>
-            async function creerDemande() {
-                console.log("creer demande");
-                let url = "./ActionServlet?todo=creerDemande";
-                let jsonResponse = await fetch(url)
-                        .then(
-                                function (httpResponse) {
-                                    return httpResponse.json();
-                                }
-                        )
-                        .catch(
-                                function (error) {
-                                    console.log(error);
-                                    return null;
-                                }
-                        );
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        async function creerDemande() {
+            console.log("creer demande");
+            let url = "./ActionServlet?todo=creerDemande";
+            let jsonResponse = await fetch(url)
+                .then(
+                    function (httpResponse) {
+                        return httpResponse.json();
+                    }
+                )
+                .catch(
+                    function (error) {
+                        console.log(error);
+                        return null;
+                    }
+                );
 
-                console.log(jsonResponse);
-                if (jsonResponse) {
-                    console.log("Demande cree avec succès");
-
-                } else {
-                    console.log("Demande ratée, aucun succès");
-                }
+            console.log(jsonResponse);
+            if (jsonResponse) {
+                console.log("Demande cree avec succès");
 
             }
-            ;
+            else {
+                console.log("Demande ratée, aucun succès");
+            }
+
+        };
+        function actualiserCompteur(element) {
+            document.getElementById("compteur-carac").innerHTML = element.value.length + " / 500";
+        }
 
 
-        </script>
-    </head>
+    </script>
+</head>
 
-    <body>
-        <div class="layout-pages">
+<body>
+    <div class="layout-pages">
+
+        <aside id="cont_infos_laterales">
+            <h1>INSTRUCT'IF</h1>
+            <h2 class="texte-description moyen"> Espace elève</h2>
+            <div class="trait"></div>
+        </aside>
+        <aside class="page gris" id="cont_pages">
+            <a href="choix-matiere.html">Retour</a>
+            <h1>Décris ta demande</h1>
+            <h2 class="texte-description moyen">Plus tu es précis•e, mieux l'intervenant pourra t'aider</h2>
+
+            <div class="bloc demande blanc margin-bot">
+                <h2 style="margin-left:10px" class="gauche moyen"> Ta question ou difficulté</h2>
+                <textarea oninput="actualiserCompteur(this)" style="height: 300px; width: 97%; resize: vertical;"
+                    placeholder="Décris ta difficulté ou ta question... Par exemple: je ne comprends pas comment résoudre les équations du second degré quand le discriminant est négatif"
+                    id="input_demande"></textarea>
+                <h3 class="texte-description petit droite" id="compteur-carac"> 0 / 500</h3>
+            </div>
+
+            <div style="display:flex; justify-content: right; max-width: 61vw;">
+                <button class="btn-transparent droite" href="choix-matiere.html">Retour</button>
+                <button class="btn-bleu droite " onclick="creerDemande()" id="envoyer_demande">Envoyer ma demande</button>
+
+            </div>
 
 
-            <aside class="cont_infos_laterales">
-                <h1>INSTRUCT'IF</h1>
-                <h2 class="texte-description moyen"> Espace elève</h2>
-                <div class="trait"></div>
-            </aside>
-            <aside class="page gris" id="cont_demande">
-                <a href="choix-matiere.html">Retour</a>
-                <h1>Décris ta demande</h1>
-                <h2>Plus tu es précis•e, mieux l'intervenant pourra t'aider</h2>
-                <input placeholder="Décris ta difficulté ou ta question... Par exemple: je ne comprends pas comment résoudre les équations du second degré quand le discriminant est négatif" id="input_demande"/>
 
 
-                <button onclick="creerDemande()" id="envoyer_demande">Envoyer ma demande</button>
+
+        </aside>
 
 
-                <a href="./choix-matiere.html">Retour</a>
 
-            </aside>
-        </div>
+    </div>
 
-    </body>
+</body>
 
 </html>

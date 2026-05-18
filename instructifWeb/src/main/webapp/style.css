@@ -4,15 +4,6 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-.cont_infos_laterales {
-    background-color: hwb(0 100% 0%);
-    padding: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    min-height: 100vh;
-    min-width: 300px;
-}
-
 #cont_infos_laterales {
     background-color: hwb(0 100% 0%);
     padding: 20px;
@@ -69,10 +60,14 @@ body {
     border: hidden;
     padding: 10px 40px;
     padding-bottom: 10px;
+    border: 2px solid  rgb(44, 90, 228);
+
 }
 
 .btn-bleu:hover {
     background-color: rgb(91, 128, 241);
+    border-color: rgb(91, 128, 241);
+
 }
 
 .btn-blanc {
@@ -91,12 +86,39 @@ body {
     color: rgb(248, 248, 245);
 }
 
+.btn-transparent {
+    background-color: none;
+    color: #555;
+    border-radius: 6px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    border: hidden;
+    padding: 10px 40px;
+    padding-bottom: 10px;
+    border: 2px solid #555;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-transparent:hover {
+    background-color: hwb(0 89% 10% / 0.71);
+}
+
+
+
 .bloc {
 
     border-radius: 6px;
     border: hidden;
     padding: 10px 10px;
 }
+
+.demande {
+    max-width: 60vw;
+
+
+}
+
 
 .matiere {
     display: flex;
@@ -119,7 +141,7 @@ body {
 .matiere.is-active {
 
     border: 2px solid rgb(44, 90, 228);
-    background-color:  hwb(206 71% 10% / 0.621);
+    background-color: hwb(206 71% 10% / 0.621);
 
 
 }
@@ -128,7 +150,7 @@ body {
 .theme {
     display: flex;
 
-    justify-content:space-between;
+    justify-content: space-between;
 
     min-height: 25px;
     min-width: 1000px;
@@ -146,7 +168,7 @@ body {
 .theme.is-active {
 
     border: 2px solid rgb(44, 90, 228);
-    background-color:  hwb(206 71% 10% / 0.621);
+    background-color: hwb(206 71% 10% / 0.621);
 
 
 }
@@ -343,7 +365,21 @@ p {
 
 .page {
     min-height: 100vh;
-    min-width: 79.9vw;
+    min-width: 80vw;
     padding-left: 30px;
     padding-top: 30px;
+}
+
+textarea {
+    margin-left: 10px;
+    border: 2px solid rgb(93, 95, 100);
+
+}
+
+
+textarea:hover {
+    border-radius: 6px;
+    border: 2px solid rgb(44, 90, 228);
+
+
 }

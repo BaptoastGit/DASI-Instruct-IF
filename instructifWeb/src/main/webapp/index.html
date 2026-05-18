@@ -5,114 +5,107 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script>
 
+    <script>
+        async function inscriptionEleve() {
+            console.log("demande d'inscription");
+
+            let nom = document.getElementById("input_nom").value;
+            console.log(nom);
+            let prenom = document.getElementById("input_prenom").value;
+            let dateNaissance = document.getElementById("input_date_naissance").value;
+            let niveauScolaire = document.getElementById("input_niveau_scolaire").value;
+            console.log(niveauScolaire);
+            let mdp = document.getElementById("input_mdp_inscription").value;
+            let mail = document.getElementById("input_adresse_inscription").value;
+            let uai = document.getElementById("input_code_UAI").value;
+
+            let url = "./ActionServlet?todo=inscriptionEleve&nom=" + nom + "&prenom=" + prenom + "&dateNaissance=" + dateNaissance + "&niveauScolaire=" + niveauScolaire + "&mail=" + mail + "&mdp=" + mdp + "&uai=" + uai;
+            let jsonResponse = await fetch(url)
+                .then(
+                    function (httpResponse) {
+                        return httpResponse.json();
+                    }
+                )
+                .catch(
+                    function (error) {
+                        console.log(error);
+                        return null;
+                    }
+                );
+
+        };
+        console.log(jsonResponse);
     </script>
 </head>
 
-<body >
-    <div class="cont-global">
-        <div class="bandeau " id="bandeau_sup">
-            <a class="logo" href="/accueil.html">INSTRUCT'IF</a>
-            <a class="btn-blanc droite" href="./connexion.html">Accéder à mon espace</a>
-        </div>
-        <div class="cont-central accueil bleu" id="partie_sup">
-            <div>
-                <h3 class="texte-description moyen"> Réseau de soutien scolaire bénévole</h3>
-                <h2 class="mega-grand"> Besoin d'aide pour tes devoirs? </h2>
-                <h2 class="mega-grand"> Des bénévoles sont là pour toi. </h2>
-                <div class="conteneur-texte">
-                    <h3 class="texte-description grand justifie"> INSTRUCT'IF met en relation gratuitement des
-                        collégiens de
-                        la 3ème à la
-                        6ème avec des étudiants,
-                        enseignants et autres profils bénévoles pour des séances de soutien en visio-conférence,
-                        instantanément
-                        et
-                        sans inscription payante. </h3>
+<body>
+    <div class="bandeau " id="bandeau_sup">
+        <a class="logo" href="/accueil.html">INSTRUCT'IF</a>
+        <a class="btn-blanc droite" href="/connexion.html">Accéder à mon espace</a>
+    </div>
+    <div class="layout-global centre bleu">
+
+        <div class="bloc centre gris cont-central bc-t-g" id="cont_connexion">
+            <h2>INSTRUCT'IF</h2>
+            <h1 class="tres-grand margin-bot"> Créer mon compte</h1>
+            <h2 class="texte-description moyen  margin-bot">Rejoins le réseau d'aide aux devoirs</h2>
+
+            <div class="bloc centre blanc" id="infos_perso">
+                <div class="row">
+                    <div class="cont-formulaire">
+                        <h2 class="label gauche moyen"> Prenom </h2>
+                        <input class="input-moyen" placeholder="Lucas" id="input_prenom" />
+
+
+                        <h2 class="label gauche moyen"> Date de naissance </h2>
+                        <input class="input-moyen" type="date" placeholder="jj/mm/aaaa" id="input_date_naissance" />
+
+                    </div>
+
+                    <div class="cont-formulaire">
+                        <h2 class="label gauche moyen"> Nom </h2>
+                        <input class="input-moyen" placeholder="Martin" id="input_nom" />
+
+
+                        <h2 class="label gauche moyen"> Niveau Scolaire </h2>
+                        <select class="input-moyen" id="input_niveau_scolaire">
+                            <option value="">Choisir...</option>
+                            <option value="3">3ème</option>
+                            <option value="4">4ème</option>
+                            <option value="5">5ème</option>
+                            <option value="6">6ème</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="cont-3-stats">
-                    <h3 class="lien-bleu moyen"> 5000 élèves inscrits</h3>
-                    <h3 class="lien-bleu moyen"> 20 intervenants bénévoles</h3>
-                    <h3 class="lien-bleu moyen"> 6 matières disponibles</h3>
+
+                <h2 class="label gauche moyen"> Code UAI de l'établissement </h2>
+                <input class="input-large" placeholder="Ex: 0750001A" id="input_code_UAI" />
+
+
+                <h2 class="label gauche moyen"> Adresse email </h2>
+                <input class="input-large" placeholder="lucas.martin@exemple.fr" id="input_adresse_inscription" />
+
+
+                <h2 class="label gauche moyen"> Mot de passe </h2>
+                <input class="input-large margin-bot" placeholder="8 caractères minimum" id="input_mdp_inscription" />
+                <button class='btn-bleu' id="creer_compte" onclick="inscriptionEleve()">Créer mon compte</button>
+                <div class="trait"></div>
+                <div class="login-row">
+                    <h3 class="texte-description moyen"> Déja inscrit?</h3>
+                    <a class="lien-bleu" href="/connexion.html"> Se connecter</a>
                 </div>
+
             </div>
+
+
+
 
         </div>
 
     </div>
-    <div class="cont-central accueil gris" id="partie_centrale">
-        <div>
-            <div class="cont-3-stats">
-                <div class="bloc blanc" id="bloc_eleve">
-                    <h3 class="gauche"> Je suis élève </h3>
-                    <p class="texte-description moyen justifie">
-                        ezoein zakzj cezkjfaz dklez, kl,lk,kz,l dlkz,al k,l, dlka, k,za, ld ,ioejczoihuichuihaziu
-                        zhdauzh a uhuiaz a iuha a baab a.
-                    </p>
-                    <h4>Validation 1</h4>
-                    <h4>Validation 1</h4>
-                    <h4>Validation 1</h4>
-
-                </div>
-                <div class="bloc blanc" id="bloc_intervenant">
-                    <h3 class="gauche"> Je suis intervenant </h3>
-
-                    <p class="texte-description moyen justifie">
-                        ezoein zakzj cezkjfaz dklez, kl,lk,kz,l dlkz,al k,l, dlka, k,za, ld ,ioejczoihuichuihaziu
-                        zhdauzh a uhuiaz a iuha a baab a.
-                    </p>
-                    <h4>Validation 1</h4>
-                    <h4>Validation 1</h4>
-                    <h4>Validation 1</h4>
-
-                </div>
-            </div>
-            <a class="btn-bleu" href="./inscription.html"> S'inscrire en tant qu'élève</a>
-
-        </div>
-
-
-    </div>
-    <div class="cont-central accueil bleu" id="partie_inf">
-        <div id="sous_partie_sup">
-            <h1>Comment ça marche?</h1>
-            <h2 class="texte-description moyen">Une mise en relation en 2 étapes, en moins d'une minute</h2>
-
-        </div>
-        <div id="sous_partie_inf">
-            <div id="etape_1">
-                <h2>Tu décris ta demande</h2>
-                <h3 class="texte-description petit"> Choisis ta matière, un thème et décris tes difficultés en
-                    quelques mots</h3>
-            </div>
-            <div id="etape_2">
-                <h2>On trouve un intervenant</h2>
-                <h3 class="texte-description petit"> [on voit pas sur la feuille demander le pdf ou inventer]</h3>
-            </div>
-            <div id="etape_3">
-                <h2>Vous vous retrouvez en visio</h2>
-                <h3 class="texte-description petit"> Un lien de vidéo-conférence est généré automatiquement. Vous
-                    rentrez en connexion immédiatement</h3>
-            </div>
-
-        </div>
-    </div>
-    <div class="noir" id="bandeau_inf">
-        <h2>INSTRUCT'IF</h2>
-        <h2>[illisible]</h2>
-
-    </div>
-
-
-
 
     <a href="/choix-matiere.html"> choix matières [a supp]</a>
-    </div>
-
-
-
-
 
 
 </body>
