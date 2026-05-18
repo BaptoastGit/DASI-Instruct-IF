@@ -51,9 +51,15 @@
                 let element = document.createElement("div");
                 element.className = "bloc blanc theme"
                 element.innerHTML = theme;
+                element.onclick = choixTheme;
                 liste_themes.appendChild(element);
             }
 
+        }
+
+        function choixTheme(){
+            document.querySelectorAll(".theme").forEach(t => t.classList.remove("is-active"));
+            this.classList.toggle('is-active');
         }
 
     </script>
