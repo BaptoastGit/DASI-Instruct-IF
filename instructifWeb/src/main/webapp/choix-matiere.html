@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            var dicoMatiere = [];
+            window.onload = async function () {
+                console.log("demande matieres");
+                let url = "./ActionServlet?todo=getMatieres";
+                let jsonResponse = await fetch(url)
+                        .then(
+                                function (httpResponse) {
+                                    return httpResponse.json();
+                                }
+                        )
+                        .catch(
+                                function (error) {
+                                    console.log(error);
+                                    return null;
+                                }
+                        );
+
+                console.log(jsonResponse);
+                if (jsonResponse) {
+                    console.log("Affichage de des matieres");
+                    let liste = jsonResponse.listeMatiere;
+                    console.log(liste);
+
+                    for (matiere of liste) {
+                        dicoMatiere.push([matiere.nom, matiere.listeThemes]);
+                        let element = document.createElement("div");
+                        element.className = "bloc blanc matiere";
+
+                        element.innerHTML = matiere.nom;
+                        element.onclick = affichageSousMatieres;
+                        document.getElementById("liste_matieres").appendChild(element);
+
+                    }
+                }
+
+            };
+
+            function affichageSousMatieres() {
+                this.classList.toggle('is-active');
+                liste_themes = document.getElementById("liste_themes");
+                liste_themes.innerHTML = "";
+                for (matiere of dicoMatiere) {
+                    if (matiere[0] === event.target.innerHTML) {
+                        for (theme of matiere[1]) {
+                            let element = document.createElement("div");
+                            element.className = "bloc blanc theme";
+
+                            element.innerHTML = theme.nom;
+                            liste_themes.appendChild(element);
+                        }
+                    }
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <div class="layout-pages">
+
+            <aside id="cont_infos_laterales">
+                <h1>INSTRUCT'IF</h1>
+                <h2 class="texte-description moyen"> Espace elève</h2>
+                <div class="trait"></div>
+            </aside>
+            <aside class="page gris" id="cont_matieres">
+                <h2 class="mega-grand">Choisir une matière</h2>
+                <h3 class="texte-description moyen">Selectionne la matière et le thème sur lesquels tu as besoin d'aide</h3>
+                <ul class="layout-matieres" id="liste_matieres">
+
+                </ul>
+                <h3 >Thèmes disponibles pour la matière sélectionnée:</h3>
+                <ul class="layout-themes" id="liste_themes">
+
+                </ul>
+
+                <button class="btn-bleu" id="continuer">continuer</button>
+
+            </aside>
+
+        </div>
+
+    </body>
+
+</html>

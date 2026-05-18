@@ -1,0 +1,11 @@
+web\modele\MatiereAction.class
+web\controleur\ActionServlet.class
+web\modele\Action.class
+web\vue\Serialisation.class
+web\modele\InscriptionAction.class
+web\vue\MatiereSerialisation.class
+web\modele\ConnexionAction.class
+web\vue\ListeDemandesSerialisation.class
+web\test\ServiceTest.class
+web\test\DemandeTest.class
+web\vue\Suu.class
