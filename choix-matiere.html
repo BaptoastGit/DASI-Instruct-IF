@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = async function () {
+            console.log("demande matieres");
+            let url = "./ActionServlet?todo=getMatieres";
+            let jsonResponse = await fetch(url)
+                .then(
+                    function (httpResponse) {
+                        return httpResponse.json();
+                    }
+                )
+                .catch(
+                    function (error) {
+                        console.log(error);
+                        return null;
+                    }
+                );
+
+            console.log(jsonResponse);
+            if (jsonResponse) {
+                console.log("Affichage de des matieres");
+                let matieres;
+                let liste;
+            }
+            else {
+                liste = ["Français", "Mathématiques", "Physique", "Informatique", "Histoire-geo", "Biologie"];
+                for (matiere of liste) {
+                    let element = document.createElement("div");
+                    element.className = "bloc blanc matiere"
+                    element.innerHTML = matiere;
+                    element.onclick = affichageSousMatieres;
+                    document.getElementById("liste_matieres").appendChild(element);
+
+                }
+            }
+
+        };
+
+        function affichageSousMatieres() {
+            this.classList.toggle('is-active');
+            liste_themes = document.getElementById("liste_themes");
+            liste_themes.innerHTML = ""
+            //for (theme of this.listeThemes) {
+            for (theme of ["algebre", "geometrie", "fractions"]) {
+                let element = document.createElement("div");
+                element.className = "bloc blanc theme"
+                element.innerHTML = theme;
+                liste_themes.appendChild(element);
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div class="layout-pages">
+
+        <aside id="cont_infos_laterales" style.height="1000px" style.width="300px">
+            <h1>INSTRUCT'IF</h1>
+            <h2 class="texte-description moyen"> Espace elève</h1>
+                <div class="trait"></div>
+        </aside>
+        <aside class="page gris" id="cont_matieres">
+            <h2 class="mega-grand">Choisir une matière</h2>
+            <h3 class="texte-description moyen">Selectionne la matière et le thème sur lesquels tu as besoin d'aide</h3>
+            <ul class="layout-matieres" id="liste_matieres">
+
+            </ul>
+            <h3 id="">Thèmes disponibles pour la matière sélectionnée:</h3>
+            <ul class="layout-themes" id="liste_themes">
+
+            </ul>
+
+            <button class="btn-bleu" id="continuer">continuer</button>
+
+
+        </aside>
+    </div>
+
+
+</body>
+
+</html>

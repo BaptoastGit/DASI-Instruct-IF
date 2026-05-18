@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        async function inscriptionEleve() {
+            console.log("demande d'inscription");
+
+            let nom = document.getElementById("input_nom").value;
+            console.log(nom);
+            let prenom = document.getElementById("input_prenom").value;
+            let dateNaissance = document.getElementById("input_date_naissance").value;
+            let niveauScolaire = document.getElementById("input_niveau_scolaire").value;
+            console.log(niveauScolaire);
+            let mdp = document.getElementById("input_mdp_inscription").value;
+            let mail = document.getElementById("input_adresse_inscription").value;
+            let uai = document.getElementById("input_code_UAI").value;
+
+            let url = "./ActionServlet?todo=inscriptionEleve&nom=" + nom + "&prenom=" + prenom + "&dateNaissance=" + dateNaissance + "&niveauScolaire=" + niveauScolaire + "&mail=" + mail + "&mdp=" + mdp + "&uai=" + uai;
+            let jsonResponse = await fetch(url)
+                .then(
+                    function (httpResponse) {
+                        return httpResponse.json();
+                    }
+                )
+                .catch(
+                    function (error) {
+                        console.log(error);
+                        return null;
+                    }
+                );
+
+        };
+        console.log(jsonResponse);
+    </script>
+</head>
+
+<body>
+    <div class="bandeau " id="bandeau_sup">
+        <a class="logo" href="/accueil.html">INSTRUCT'IF</a>
+        <a class="btn-blanc droite" href="/connexion.html">Accéder à mon espace</a>
+    </div>
+    <div class="layout-global centre bleu">
+
+        <div class="bloc centre gris cont-central bc-t-g" id="cont_connexion">
+            <h2>INSTRUCT'IF</h2>
+            <h1 class="tres-grand margin-bot"> Créer mon compte</h1>
+            <h2 class="texte-description moyen  margin-bot">Rejoins le réseau d'aide aux devoirs</h2>
+
+            <div class="bloc centre blanc" id="infos_perso">
+                <div class="row">
+                    <div class="cont-formulaire">
+                        <h2 class="label gauche moyen"> Prenom </h2>
+                        <input class="input-moyen" placeholder="Lucas" id="input_prenom" />
+
+
+                        <h2 class="label gauche moyen"> Date de naissance </h2>
+                        <input class="input-moyen" type="date" placeholder="jj/mm/aaaa" id="input_date_naissance" />
+
+                    </div>
+
+                    <div class="cont-formulaire">
+                        <h2 class="label gauche moyen"> Nom </h2>
+                        <input class="input-moyen" placeholder="Martin" id="input_nom" />
+
+
+                        <h2 class="label gauche moyen"> Niveau Scolaire </h2>
+                        <select class="input-moyen" id="input_niveau_scolaire">
+                            <option value="">Choisir...</option>
+                            <option value="3">3ème</option>
+                            <option value="4">4ème</option>
+                            <option value="5">5ème</option>
+                            <option value="6">6ème</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 class="label gauche moyen"> Code UAI de l'établissement </h2>
+                <input class="input-large" placeholder="Ex: 0750001A" id="input_code_UAI" />
+
+
+                <h2 class="label gauche moyen"> Adresse email </h2>
+                <input class="input-large" placeholder="lucas.martin@exemple.fr" id="input_adresse_inscription" />
+
+
+                <h2 class="label gauche moyen"> Mot de passe </h2>
+                <input class="input-large margin-bot" placeholder="8 caractères minimum" id="input_mdp_inscription" />
+                <button class='btn-bleu' id="creer_compte" onclick="inscriptionEleve()">Créer mon compte</button>
+                <div class="trait"></div>
+                <div class="login-row">
+                    <h3 class="texte-description moyen"> Déja inscrit?</h3>
+                    <a class="lien-bleu" href="/connexion.html"> Se connecter</a>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <a href="/choix-matiere.html"> choix matières [a supp]</a>
+
+
+</body>
+
+</html>

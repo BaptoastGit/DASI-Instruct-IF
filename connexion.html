@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        async function connexionEleve() {
+            console.log("demande de connexion");
+
+
+            let mdp = document.getElementById("input_mdp_connexion").value;
+            let mail = document.getElementById("input_adresse_connexion").value;
+
+            let url = "./ActionServlet?todo=connexionEleve&mail=" + mail + "&mdp=" + mdp;
+            let jsonResponse = await fetch(url)
+                .then(
+                    function (httpResponse) {
+                        return httpResponse.json();
+                    }
+                )
+                .catch(
+                    function (error) {
+                        console.log(error);
+                        return null;
+                    }
+                );
+
+        };
+        console.log(jsonResponse);
+    </script>
+</head>
+
+<body>
+    <div class="bandeau" id="bandeau_sup">
+            <a class="logo" href="/accueil.html">INSTRUCT'IF</a>
+            <a class="btn-blanc droite" href="/connexion.html">Accéder à mon espace</a>
+        </div>
+    <div class="layout-global centre bleu">
+        
+
+
+        <div class="bloc centre gris cont-central bc-t-g" id="cont_connexion">
+            <h2>INSTRUCT'IF</h2>
+            <h1 class="centre tres-grand "> Se connecter</h1>
+            <h2 class="texte-description moyen"> Élèves et intervenants, c'est par ici !</h2>
+            <div class="bloc centre blanc" id="infos_connexion">
+                <h2 class="label gauche moyen"> Identifiant </h2>
+
+                <input class="input-large" placeholder="votre.email@exemple.fr" id="input_adresse_connexion"></input>
+
+                <h2 class="label gauche moyen"> Mot de passe </h2>
+                <input class="input-large margin-bot" placeholder="••••••" id="input_mdp_connexion"></input>
+
+                <button class="btn-bleu barre-inf" id="se_connecter">Se connecter</button>
+
+                <div class="trait"></div>
+                <div class="login-row">
+                    <h3 class="texte-description moyen"> Pas encore inscrit?</h3>
+                    <a class="lien-bleu" href="/index.html">Créer un compte élève</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
