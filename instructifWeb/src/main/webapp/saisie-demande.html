@@ -47,11 +47,29 @@
             <h1>INSTRUCT'IF</h1>
             <h2 class="texte-description moyen"> Espace elève</h2>
             <div class="trait"></div>
+            <div class="cont-central" style="min-height: 65vh;">
+                <div class="bloc bleu"> + Nouvelle demande</div>
+                <div class="bloc bleu"> Mes demandes</div>
+
+            </div>
+            <div class="trait"></div>
+            <div class="bloc gris">
+                <div> Lucas Martin</div>
+                <div class="texte-description petit"> 4ème</div>
+            </div>
+
+            <div class="texte-description moyen"> Se déconnecter</div>
         </aside>
         <aside class="page gris" id="cont_pages">
-            <a href="choix-matiere.html">Retour</a>
+            <a class="texte-description" style="display: inline-block; margin-bottom: 10px;" href="choix-matiere.html">
+                &lt Retour</a>
+
+            <div style="display:flex; gap:15px ; justify-content: left;">
+                <div class="text-pilule moyen bleute">Français</div>
+                <div class="text-pilule moyen grise">Compréhension de Texte</div>
+            </div>
             <h1>Décris ta demande</h1>
-            <h2 class="texte-description moyen">Plus tu es précis•e, mieux l'intervenant pourra t'aider</h2>
+            <h2 class="texte-description moyen ">Plus tu es précis•e, mieux l'intervenant pourra t'aider</h2>
 
             <div class="bloc demande blanc margin-bot">
                 <h2 style="margin-left:10px" class="gauche moyen"> Ta question ou difficulté</h2>
@@ -61,9 +79,9 @@
                 <h3 class="texte-description petit droite" id="compteur-carac"> 0 / 500</h3>
             </div>
 
-            <div style="display:flex; justify-content: right; max-width: 61vw;">
-                <button class="btn-transparent droite" href="choix-matiere.html">Retour</button>
-                <button class="btn-bleu droite " onclick="creerDemande()" id="envoyer_demande">Envoyer ma demande</button>
+            <div style="display:flex; gap:15px ; justify-content: right; max-width: 61vw;">
+                <a class="btn-transparent droite" href="./choix-matiere.html">Retour</a>
+                <a class="btn-bleu droite " onclick="creerDemande()" id="envoyer_demande">Envoyer ma demande</a>
 
             </div>
 

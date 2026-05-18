@@ -60,7 +60,7 @@ body {
     border: hidden;
     padding: 10px 40px;
     padding-bottom: 10px;
-    border: 2px solid  rgb(44, 90, 228);
+    border: 2px solid rgb(44, 90, 228);
 
 }
 
@@ -380,6 +380,28 @@ textarea {
 textarea:hover {
     border-radius: 6px;
     border: 2px solid rgb(44, 90, 228);
+
+
+}
+
+
+.text-pilule {
+    border-radius: 100px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    padding: 10px 10px;
+    padding-bottom: 10px;
+}
+
+.bleute {
+    background-color: hwb(206 71% 10% / 0.621);
+    color: rgb(44, 90, 228);
+
+}
+
+.grise {
+    background-color: hwb(0 71% 28% / 0.822);
+    color: #555;
 
 
 }
