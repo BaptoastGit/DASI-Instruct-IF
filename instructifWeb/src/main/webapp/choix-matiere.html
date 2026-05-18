@@ -43,10 +43,10 @@
         };
 
         function affichageSousMatieres() {
+            document.querySelectorAll(".matiere").forEach(m => m.classList.remove("is-active"));
             this.classList.toggle('is-active');
             liste_themes = document.getElementById("liste_themes");
             liste_themes.innerHTML = ""
-            //for (theme of this.listeThemes) {
             for (theme of ["algebre", "geometrie", "fractions"]) {
                 let element = document.createElement("div");
                 element.className = "bloc blanc theme"
