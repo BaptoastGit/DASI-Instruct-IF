@@ -133,6 +133,19 @@ body {
 
 }
 
+.etape{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-height: 250px;
+    max-width: 250px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+
+}
+
 .matiere:hover {
     border: 2px solid rgb(44, 90, 228);
 
@@ -288,7 +301,7 @@ body {
 }
 
 .bleu {
-    background-color: hwb(206 71% 10% / 0.621);
+    background-color: rgb(212, 226, 240)
 }
 
 .noir {
