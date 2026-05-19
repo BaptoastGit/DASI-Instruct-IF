@@ -279,6 +279,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+
 }
 
 
@@ -296,6 +297,10 @@ body {
 
 .blanc {
     background-color: hwb(0 100% 0%);
+}
+
+.t-blanc {
+   color: hwb(0 100% 0%);
 }
 
 
