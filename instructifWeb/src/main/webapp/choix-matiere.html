@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <script src="panneau-lateral.js"></script>
+
     <script>
         window.onload = async function () {
             console.log("demande matieres");
@@ -57,10 +59,18 @@
 
         }
 
-        function choixTheme(){
+        function choixTheme() {
             document.querySelectorAll(".theme").forEach(t => t.classList.remove("is-active"));
             this.classList.toggle('is-active');
         }
+
+        function pageDemande() {
+            sessionStorage.setItem("matiere-choisie", "Mathématiques");
+            sessionStorage.setItem("theme-choisi", "algebre");
+            window.location.href = "saisie-demande.html";
+
+        }
+       
 
     </script>
 </head>
@@ -69,11 +79,8 @@
     <div id="root"></div>
     <div class="layout-pages">
 
-        <aside id="cont_infos_laterales" style.height="1000px" style.width="300px">
-            <h1>INSTRUCT'IF</h1>
-            <h2 class="texte-description moyen"> Espace elève</h1>
-                <div class="trait"></div>
-        </aside>
+        <panneau-lateral></panneau-lateral>
+
         <aside class="page gris" id="cont_matieres">
             <h2 class="mega-grand">Choisir une matière</h2>
             <h3 class="texte-description moyen">Selectionne la matière et le thème sur lesquels tu as besoin d'aide</h3>
@@ -85,7 +92,8 @@
 
             </ul>
 
-            <a href="./saisie-demande.html"  class="btn-bleu" id="continuer">continuer</a>
+            <button onclick="pageDemande()" href="./saisie-demande.html" class="btn-bleu"
+                id="continuer">continuer</button>
 
 
         </aside>

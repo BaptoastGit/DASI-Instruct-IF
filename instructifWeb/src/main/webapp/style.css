@@ -116,6 +116,30 @@ body {
 .demande {
     max-width: 60vw;
 
+}
+
+.liste-demande {
+    max-width: 60vw;
+    margin-bottom: 15px;
+    justify-items: left;
+    color: #555;
+    text-align: left;
+    transition: background-color 0.3s ease;
+
+
+}
+
+.liste-demande:hover {
+    background-color: rgb(177, 209, 241);
+
+
+}
+
+.liste-demande.is-active {
+    background-color: rgb(177, 209, 241);
+    color: rgb(44, 90, 228);
+
+
 
 }
 
@@ -133,8 +157,8 @@ body {
 
 }
 
-.etape{
-  
+.etape {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,6 +183,16 @@ body {
 
 }
 
+.deconnection {
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.deconnection:hover {
+    background-color: hwb(0 89% 10%);
+
+
+}
 
 .theme {
     display: flex;
@@ -313,7 +347,7 @@ body {
 }
 
 .t-blanc {
-   color: hwb(0 100% 0%);
+    color: hwb(0 100% 0%);
 }
 
 
@@ -422,4 +456,28 @@ textarea:hover {
     color: #555;
 
 
+}
+
+.vert{
+    background-color: hwb(96 54% 6% / 0.822);
+
+}
+
+.t-vert{
+    color: hwb(96 1% 65% / 0.822);
+
+}
+
+.rouge{
+    background-color: hwb(8 63% 6% / 0.822);
+
+}
+
+.t-rouge{
+    color: hwb(0 2% 52% / 0.822);
+
+}
+
+.statut{
+    min-width: 100px;
 }

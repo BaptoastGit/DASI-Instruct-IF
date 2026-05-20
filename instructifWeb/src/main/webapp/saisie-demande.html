@@ -5,7 +5,13 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <script src="panneau-lateral.js" defer></script>
     <script>
+        window.onload = () => {
+            document.getElementById("theme-choisi").innerHTML = sessionStorage.getItem("theme-choisi")
+            document.getElementById("matiere-choisie").innerHTML = sessionStorage.getItem("matiere-choisie")
+
+        }
         async function creerDemande() {
             console.log("creer demande");
             let url = "./ActionServlet?todo=creerDemande";
@@ -43,30 +49,14 @@
 <body>
     <div class="layout-pages">
 
-        <aside id="cont_infos_laterales">
-            <h1>INSTRUCT'IF</h1>
-            <h2 class="texte-description moyen"> Espace elève</h2>
-            <div class="trait"></div>
-            <div class="cont-central" style="min-height: 65vh;">
-                <div class="bloc bleu"> + Nouvelle demande</div>
-                <div class="bloc bleu"> Mes demandes</div>
-
-            </div>
-            <div class="trait"></div>
-            <div class="bloc gris">
-                <div> Lucas Martin</div>
-                <div class="texte-description petit"> 4ème</div>
-            </div>
-
-            <div class="texte-description moyen"> Se déconnecter</div>
-        </aside>
+        <panneau-lateral></panneau-lateral>
         <aside class="page gris" id="cont_pages">
             <a class="texte-description" style="display: inline-block; margin-bottom: 10px;" href="choix-matiere.html">
                 &lt Retour</a>
 
             <div style="display:flex; gap:15px ; justify-content: left;">
-                <div class="text-pilule moyen bleute">Français</div>
-                <div class="text-pilule moyen grise">Compréhension de Texte</div>
+                <div class="text-pilule moyen bleute" id="matiere-choisie"></div>
+                <div class="text-pilule moyen grise" id="theme-choisi"></div>
             </div>
             <h1>Décris ta demande</h1>
             <h2 class="texte-description moyen ">Plus tu es précis•e, mieux l'intervenant pourra t'aider</h2>

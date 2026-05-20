@@ -27,16 +27,24 @@
 
         };
         console.log(jsonResponse);
+
+        function seConnecter() {
+
+
+            window.location.href = "choix-matiere.html";
+            
+
+        }
     </script>
 </head>
 
 <body>
     <div class="bandeau" id="bandeau_sup">
-            <a class="logo" href="./accueil.html">INSTRUCT'IF</a>
-            <a class="btn-blanc droite" href="./connexion.html">Accéder à mon espace</a>
-        </div>
+        <a class="logo" href="./accueil.html">INSTRUCT'IF</a>
+        <a class="btn-blanc droite" href="./connexion.html">Accéder à mon espace</a>
+    </div>
     <div class="layout-global centre bleu">
-        
+
 
 
         <div class="bloc centre gris cont-central bc-t-g" id="cont_connexion">
@@ -51,7 +59,7 @@
                 <h2 class="label gauche moyen"> Mot de passe </h2>
                 <input class="input-large margin-bot" placeholder="••••••" id="input_mdp_connexion"></input>
 
-                <button class="btn-bleu barre-inf" id="se_connecter">Se connecter</button>
+                <button class="btn-bleu barre-inf" onclick="seConnecter()" id="se_connecter">Se connecter</button>
 
                 <div class="trait"></div>
                 <div class="login-row">
