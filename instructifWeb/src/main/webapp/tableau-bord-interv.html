@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="panneau-lateral.js" defer></script>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <div class="layout-pages">
+
+        <panneau-lateral></panneau-lateral>
+        <aside class="page gris" id="cont_pages">
+            <h1>Mise en relation</h1>
+            <div style="display:flex; gap:15px ; justify-content: left; margin-bottom: 15px;">
+                <div class="bloc blanc" id="matiere-choisie">Etat A - Soutien en cours</div>
+                <div class="bloc blanc" id="theme-choisi">Etat B - En attente</div>
+            </div>
+            <div class="bloc blanc margin-bot" style="width:50vw" id="bloc_intervenant_trouve">
+
+                <div style="display:flex; gap:5px; align-items: center;">
+                    <img src="icone-user.png" style="width: 45px; height: 50px; object-fit: contain;"
+                        alt="Utilisateur" />
+
+                    <div
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+                        <div id="prenom-nom">Lucas Martin</div>
+                        <div id="classe" class="texte-description moyen">4ème</div>
+                    </div>
+                </div>
+                <div class="trait"></div>
+                <div style="display: flex; gap:30vw">
+                    <h2 class=" label texte-description moyen"> Matiere </h2>
+                    <h2 class="texte-description moyen">Thème</h2>
+                </div>
+                <div style="display: flex; gap:30vw;">
+                    <h2 class=" label texte-description moyen"> Français </h2>
+                    <h2 class="texte-description moyen">Compréhension de texte</h2>
+                </div>
+                <div style="display: flex; gap:30vw;">
+                    <h2 class=" label texte-description moyen"> Début de séance </h2>
+                    <h2 class="texte-description moyen">Durée estimée</h2>
+                </div>
+                <div style="display: flex; gap:30vw">
+                    <h2 class=" label texte-description moyen"> Aujourd'hui à 14h30 </h2>
+                    <h2 class="texte-description moyen">45 min</h2>
+                </div>
+
+                <div class="bloc gris">
+
+                    <h2 class="texte-description moyen">Demande de l'élève</h2>
+
+                    <h2 class="texte-description moyen"> « Je ne comprends pas pk bla bla bla la tirade du nez»</h2>
+
+
+                </div>
+
+                <button class="btn-rouge margin-bot" style="margin-top:1vh;" onclick="creerDemande()"
+                    id="envoyer_demande">Rejoindre la vidéoconférence</button>
+                <button class="btn-transparent margin-bot" style="margin-top:1vh;" onclick="creerDemande()"
+                    id="envoyer_demande">Terminer la séance</button>
+
+            </div>
+
+
+            <div class="bloc gris margin-bot" style="width:50vw" id="bloc_intervenant_attente">
+                <h2 class="centre tres-grand">Vous êtes disponible</h2>
+                <h2 class="texte-description moyen">Vous serez notifié•e dès qu'un élève fait une demande dans vos
+                    matières. Merci de votre engagement !</h2>
+
+                <div class="bloc blanc" id="matiere-choisie">
+
+                    <div style="display:flex;  gap:10vw ;justify-content: center;">
+                        <div style="text-align: center;">
+                            <h1>24</h1>
+                            <div>soutiens réalisés</div>
+
+                        </div>
+
+                        <div  style="text-align: center;">
+                            <h1>18h</h1>
+                            <div>d'accompagnement</div>
+                        </div>
+                        <div  style="text-align: center;">
+                            <h1>4.8</h1>
+                            <div>note moyenne</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+        </aside>
+
+
+
+    </div>
+
+</body>
+
+</html>

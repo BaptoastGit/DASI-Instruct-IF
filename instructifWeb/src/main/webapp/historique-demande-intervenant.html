@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="panneau-lateral.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div class="layout-pages">
+
+        <panneau-lateral></panneau-lateral>
+
+        <aside class="page gris" id="cont_matieres">
+            <h2 class="mega-grand">Mon historique</h2>
+            <h3 class="texte-description moyen">[6] Soutiens terminés</h3>
+            <h2 class="tres-grand">Mes derniers soutiens</h2>
+            <div class="bloc blanc">
+                <div class="row" id="head tableau" style="display:flex; margin-bottom: 0px;">
+                    <div class="texte-description moyen" style="margin-left: 10px; margin-right: 150px;">Date</div>
+                    <div class="texte-description moyen" style="margin-right: 150px;">Eleve</div>
+                    <div class="texte-description moyen" style="margin-right: 150px;">Matiere</div>
+                    <div class="texte-description moyen" style="margin-right: 150px;">Durée</div>
+                    <div class="texte-description moyen">Statut</div>
+                </div>
+                <div class="trait" style="margin-top: 5px;"></div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="texte-description moyen" style="margin-left: 10px; margin-right: 150px;">21 avr. 2026
+                    </div>
+                    <div>
+                        <div class="gras" style="margin-right: 150px;">Lucas M.</div>
+                        <div class="texte-description petit" style="margin-right: 150px;">4ème</div>
+
+                    </div>
+                    <div class="text-pilule" style="margin-right: 150px;">Mathématiques</div>
+                    <div class="texte-description moyen" style="margin-right: 500px;">50min</div>
+
+                    <div class="text-pilule vert t-vert statut">Terminée</div>
+                </div>
+
+
+                <div class="trait" style="margin-top: 5px;"></div>
+
+
+            </div>
+            <h2 class="tres-grand">Statistiques sur les établissements</h2>
+
+            <div class="bloc gris" id="carte" style="width: 100%; height: 400px; margin-bottom: 15px;"></div>
+        </aside>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const coordonnesLyon = [45.764043, 4.835659];
+            const niveauZoom = 13;
+
+            const carte = L.map('carte').setView(coordonnesLyon, niveauZoom);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(carte);
+
+            const marqueur = L.marker(coordonnesLyon).addTo(carte);
+
+            marqueur.bindPopup('<h1>Collège Jean Moulin</h1> <div class="texte-description moyen">Lyon 5ème<div/><div style=display:flex;> <div class="bloc bleu" style="justify-content:center"> <h1 class="t-bleu">103</h1> <div class="texte-description grise moyen">IPS</div></div> <div class="bloc rouge" style="justify-content:center"> <h1 class="t-rouge">2</h1> <div class="texte-description grise moyen">Soutiens</div> </div> </div><div class="bloc gris" style="text-align:center"> <h3> 50 min </h3> <h4>Durée moyenne</h4></div').openPopup();
+        });
+    </script>
+
+</body>
+
+</html>

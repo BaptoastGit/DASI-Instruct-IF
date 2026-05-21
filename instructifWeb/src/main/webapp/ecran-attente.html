@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="panneau-lateral.js" defer></script>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <div class="layout-pages">
+
+        <panneau-lateral></panneau-lateral>
+        <aside class="page gris" id="cont_pages">
+            <h1>Mise en relation</h1>
+            <div style="display:flex; gap:15px ; justify-content: left; margin-bottom: 15px;">
+                <div class="bloc blanc" id="matiere-choisie">Etat A - Intervenant trouvé</div>
+                <div class="bloc blanc" id="theme-choisi">Etat B - Intervenant en attente</div>
+            </div>
+            <div class="bloc blanc margin-bot" style="width:50vw" id="bloc_intervenant_trouve">
+                <h2 class="centre tres-grand">Intervenant trouvé !</h2>
+                <h2 class="texte-description moyen">Tu vas être mis•e en relation avec:</h2>
+                <div class="bloc gris">
+                    <div style="display:flex; gap:5px; align-items: center;">
+                        <img src="icone-user.png" style="width: 45px; height: 50px; object-fit: contain;"
+                            alt="Utilisateur" />
+
+                        <div
+                            style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+                            <div id="prenom-nom">Lucas Martin</div>
+                            <div id="classe" class="texte-description moyen">4ème</div>
+                        </div>
+                    </div>
+                    <div class="trait" style="border-top: 1px solid #555;"></div>
+                    <div style="display: flex; gap:30vw">
+                        <h2 class=" label texte-description moyen"> Matiere </h2>
+                        <h2 class="texte-description moyen">Thème</h2>
+                    </div>
+                    <div style="display: flex; gap:30vw;">
+                        <h2 class=" label texte-description moyen"> Français </h2>
+                        <h2 class="texte-description moyen">Compréhension de texte</h2>
+                    </div>
+                    <div style="display: flex; gap:30vw;">
+                        <h2 class=" label texte-description moyen"> Début de séance </h2>
+                        <h2 class="texte-description moyen">Durée estimée</h2>
+                    </div>
+                    <div style="display: flex; gap:30vw">
+                        <h2 class=" label texte-description moyen"> Aujourd'hui à 14h30 </h2>
+                        <h2 class="texte-description moyen">45 min</h2>
+                    </div>
+
+
+                </div>
+
+                <button class="btn-rouge margin-bot" style="margin-top:1vh; padding: 10px 20vw;"
+                    onclick="creerDemande()" id="envoyer_demande">Rejoindre la vidéoconférence</button>
+
+            </div>
+
+
+            <div class="bloc blanc margin-bot" style="width:50vw" id="bloc_intervenant_trouve">
+                <h2 class="centre tres-grand">Aucun intervenant disponible</h2>
+                <h2 class="texte-description moyen">Tous nos intervenants sont occupés pour le moment. Pas d'inquiétude
+                    - ta demande a bien été enregistrée et sera traitée dès qu'un intervenant sera libre. Tu recevras une
+                    notification par email.</h2>
+                <div style="display:flex; gap:15px ; justify-content: center; max-width: 61vw;">
+                    <a class="btn-transparent" href="./choix-matiere.html">Voir mon hisorique </a>
+                    <a class="btn-bleu " onclick="creerDemande()" id="envoyer_demande">Faire une nouvelle demande</a>
+
+                </div>
+
+               
+
+            </div>
+
+
+
+
+
+
+        </aside>
+
+
+
+    </div>
+
+</body>
+
+</html>
